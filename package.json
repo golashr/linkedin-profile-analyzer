@@ -1,0 +1,38 @@
+{
+  "name": "linkedin-profile-analyzer",
+  "version": "1.0.0",
+  "description": "A TypeScript application that fetches and analyzes LinkedIn profiles and posts using the LinkedIn API.",
+  "main": "node dist/index.js",
+  "type": "module",
+  "exports": {
+    "./typescript-test": "./dist/typescript-test.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf ./dist",
+    "compile": "tsc -p tsconfig.build.json",
+    "build": "npm run clean && npm run compile",
+    "lint": "eslint . --ext .ts",
+    "start": "tsx src/index.ts",
+    "start:typescript-test": "tsx src/typescript-test.ts",
+    "start:prod:index": "node dist/index.js",
+    "start:prod:typescript-test": "node dist/typescript-test.js",
+    "dev1": "NODE_OPTIONS=\"--loader ts-node/esm\" nodemon --exec ts-node-esm src/index.ts",
+    "dev2": "NODE_OPTIONS=\"--loader ts-node/esm\" nodemon --exec ts-node-esm src/typescript-test.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@types/express": "^5.0.0",
+    "eslint": "^9.21.0",
+    "globals": "^16.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}

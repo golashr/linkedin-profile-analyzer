@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+      "target": "ES2022",                   // Modern ECMAScript target
+      "module": "NodeNext",                  // Supports ESM and CommonJS
+      "moduleResolution": "NodeNext",        // Properly resolves Node.js modules
+      "lib": ["ES2022"],                      // Includes ES and DOM APIs
+      "strict": true,                         // Enables all strict type checks
+      "rootDir": "./src",                     // Source directory
+      "outDir": "./dist",                     // Compiled files output directory
+      "esModuleInterop": true,                // Allows default import compatibility
+      "resolveJsonModule": true,              // Enables importing `.json` files
+      "noImplicitAny": true,                  // Disallows implicit `any` types
+      "skipLibCheck": true,                    // Speeds up compilation by skipping .d.ts checking
+      "noImplicitReturns": true,
+      "strictNullChecks": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "declaration": true,
+      "declarationMap": true,
+      "forceConsistentCasingInFileNames": true, // Ensures case-sensitive imports
+      "allowImportingTsExtensions": false,
+      "noEmit": false
+    },
+    "paths": {
+      "*": ["./src/*"] // Allows imports without .js
+    },
+    "include": ["src"], // Include all .ts files in the `src` directory
+    "exclude": ["node_modules", "dist"] // Exclude compiled output and dependencies
+  }
+  
