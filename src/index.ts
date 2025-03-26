@@ -22,22 +22,25 @@ app.get('/comments', (async (req: express.Request, res: express.Response) => {
   try {
     const name = req.query.name as string;
     if (!name) {
-      return res.status(400).json({ error: 'Name parameter is required' });
+      res.status(400).json({ error: 'Name parameter is required' });
+      return 
     }
 
     const profile = await getProfile(name);
     if (!profile.data.urn) {
-      return res.status(404).json({ error: 'Profile not found' });
+      res.status(404).json({ error: 'Profile not found' });
+      return 
     }
 
     const posts = (await getAllPosts(name)).data;
     
     if (!posts.length) {
-      return res.status(404).json({ error: 'No posts found' });
+      res.status(404).json({ error: 'No posts found' });
+      return 
     }
 
     const comments = await getPostComments(posts[0].urn);
-    return res.json({
+    res.json({
       total: comments.total,
       comments: comments.data,
       post_urn: posts[0].urn
@@ -46,6 +49,7 @@ app.get('/comments', (async (req: express.Request, res: express.Response) => {
     console.error('Error fetching comments:', error);
     res.status(500).json({ error: 'Failed to fetch comments' });
   }
+  return 
 }) as RequestHandler);
 
 app.listen(port, () => {
